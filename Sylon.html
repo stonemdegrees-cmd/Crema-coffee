@@ -4,9 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f6f2eb">
 <title>CREMA — Coffee House</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -17,17 +16,18 @@
 }
 
 body {
-    font-family: 'Manrope', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: #f6f2eb;
     color: #30251e;
 }
 
 header {
+    min-height: 80px;
+    padding: 20px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 8%;
-    background: #f6f2eb;
+    gap: 20px;
 }
 
 .logo {
@@ -38,14 +38,14 @@ header {
 
 nav {
     display: flex;
-    gap: 30px;
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
 nav a {
-    text-decoration: none;
     color: #30251e;
+    text-decoration: none;
     font-size: 14px;
-    transition: .3s;
 }
 
 nav a:hover {
@@ -53,27 +53,27 @@ nav a:hover {
 }
 
 .hero {
-    min-height: 620px;
-    padding: 90px 8%;
+    min-height: 600px;
+    padding: 80px 8%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap: 45px;
 }
 
 .hero-text {
     max-width: 500px;
 }
 
-.hero-text span {
+.eyebrow {
     color: #a47755;
-    letter-spacing: 3px;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: bold;
+    letter-spacing: 3px;
 }
 
-.hero h1 {
-    font-size: clamp(45px, 6vw, 75px);
+h1 {
+    font-size: clamp(42px, 6vw, 72px);
     line-height: 1.1;
     margin: 25px 0;
 }
@@ -82,6 +82,14 @@ nav a:hover {
     color: #81766d;
     line-height: 1.8;
     margin-bottom: 30px;
+}
+
+.hero img {
+    width: 48%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #e4d6c8;
 }
 
 .btn {
@@ -99,37 +107,25 @@ nav a:hover {
     transform: translateY(-3px);
 }
 
-.hero img {
-    width: 48%;
-    height: 480px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
 section {
-    padding: 90px 8%;
+    padding: 85px 8%;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 45px;
 }
 
-.section-title span {
-    color: #a47755;
-    letter-spacing: 3px;
-    font-size: 12px;
-}
-
-.section-title h2 {
+.section-title h2,
+.contacts h2 {
     font-size: 38px;
     margin-top: 12px;
 }
 
 .products {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
 }
 
 .product {
@@ -140,14 +136,16 @@ section {
 }
 
 .product:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     box-shadow: 0 15px 35px #49332815;
 }
 
 .product img {
     width: 100%;
-    height: 280px;
+    height: 260px;
+    display: block;
     object-fit: cover;
+    background: #e4d6c8;
 }
 
 .product-info {
@@ -162,6 +160,8 @@ section {
 .product-info p {
     color: #94877c;
     font-size: 14px;
+    line-height: 1.6;
+    min-height: 45px;
     margin-bottom: 20px;
 }
 
@@ -178,7 +178,7 @@ section {
 
 .about h2 {
     font-size: 35px;
-    margin-bottom: 20px;
+    margin: 18px 0;
 }
 
 .about p {
@@ -193,13 +193,16 @@ section {
 }
 
 .contacts h2 {
-    font-size: 38px;
     margin-bottom: 25px;
 }
 
 .contacts p {
     color: #81766d;
-    margin: 12px 0;
+    margin: 15px 0;
+}
+
+.contacts .btn {
+    margin-top: 20px;
 }
 
 footer {
@@ -210,27 +213,25 @@ footer {
     font-size: 13px;
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
     header {
-        padding: 20px 5%;
+        flex-direction: column;
+        padding: 20px;
     }
 
     nav {
-        gap: 12px;
-    }
-
-    nav a {
-        font-size: 12px;
+        justify-content: center;
+        gap: 15px;
     }
 
     .hero {
         flex-direction: column;
-        padding: 60px 6%;
+        padding: 55px 6%;
     }
 
     .hero img {
         width: 100%;
-        height: 350px;
+        height: 330px;
     }
 
     .products {
@@ -238,7 +239,7 @@ footer {
     }
 
     section {
-        padding: 65px 6%;
+        padding: 60px 6%;
     }
 }
 </style>
@@ -248,6 +249,7 @@ footer {
 
 <header>
     <div class="logo">CREMA.</div>
+
     <nav>
         <a href="#home">Главная</a>
         <a href="#menu">Меню</a>
@@ -257,73 +259,81 @@ footer {
 </header>
 
 <main>
+
 <section class="hero" id="home">
     <div class="hero-text">
-        <span>COFFEE • COMFORT • MOMENTS</span>
+        <span class="eyebrow">COFFEE • COMFORT • MOMENTS</span>
         <h1>Твой идеальный момент с кофе.</h1>
+
         <p>
             CREMA — место, где каждый глоток превращается
             в маленькое удовольствие. Свежий кофе,
             уютная атмосфера и любовь к деталям.
         </p>
+
         <a href="#menu" class="btn">Наше меню</a>
     </div>
 
     <img
-    src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1000"
-    alt="Атмосфера кофейни">
+        src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1000"
+        alt="Кофейня"
+    >
 </section>
 
 <section id="menu">
     <div class="section-title">
-        <span>OUR MENU</span>
+        <span class="eyebrow">OUR MENU</span>
         <h2>Наш ассортимент</h2>
     </div>
 
     <div class="products">
 
-        <div class="product">
+        <article class="product">
             <img
-            src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=800"
-            alt="Капучино">
-
+                src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=800"
+                alt="Капучино"
+                loading="lazy"
+            >
             <div class="product-info">
                 <h3>Капучино</h3>
                 <p>Нежная молочная пенка и насыщенный эспрессо.</p>
                 <div class="price">100 ₽</div>
             </div>
-        </div>
+        </article>
 
-        <div class="product">
+        <article class="product">
             <img
-            src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800"
-            alt="Латте">
-
+                src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800"
+                alt="Латте"
+                loading="lazy"
+            >
             <div class="product-info">
                 <h3>Латте</h3>
                 <p>Мягкий кофейный вкус и бархатистое молоко.</p>
                 <div class="price">200 ₽</div>
             </div>
-        </div>
+        </article>
 
-        <div class="product">
+        <article class="product">
             <img
-            src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800"
-            alt="Американо">
-
+                src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800"
+                alt="Американо"
+                loading="lazy"
+            >
             <div class="product-info">
                 <h3>Американо</h3>
                 <p>Классический чёрный кофе с насыщенным вкусом.</p>
                 <div class="price">300 ₽</div>
             </div>
-        </div>
+        </article>
 
     </div>
 </section>
 
 <section class="about" id="about">
-    <span>ABOUT CREMA</span>
+    <span class="eyebrow">ABOUT CREMA</span>
     <h2>Больше, чем просто кофе.</h2>
+
     <p>
         Мы верим, что хороший кофе способен сделать
         обычный день особенным. CREMA создана для тех,
@@ -332,74 +342,87 @@ footer {
 </section>
 
 <section class="contacts" id="contacts">
-    <span>CONTACTS</span>
+    <span class="eyebrow">CONTACTS</span>
     <h2>Будем рады видеть тебя!</h2>
+
     <p>📍 Адрес: укажите адрес кофейни</p>
     <p>📞 Телефон: укажите номер телефона</p>
     <p>🕒 Работаем: ежедневно с 09:00 до 22:00</p>
-    <a href="tel:+70000000000" class="btn">Позвонить нам</a>
+
+    <a href="tel:+70000000000" class="btn">
+        Позвонить нам
+    </a>
 </section>
+
 </main>
 
 <footer>
-    © 2026 CREMA COFFEE HOUSE. Все права защищены.
+    © 2026 CREMA COFFEE HOUSE
 </footer>
 
 <script>
-// Система сохранения активности посетителей
-const activityKey = "crema_visitor_activity";
+"use strict";
+
+const STORAGE_KEY = "crema_activity";
 
 function saveActivity(action, details = "") {
-    const activities = JSON.parse(
-        localStorage.getItem(activityKey) || "[]"
-    );
+    try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        const activities = saved ? JSON.parse(saved) : [];
 
-    activities.push({
-        action: action,
-        details: details,
-        time: new Date().toISOString()
-    });
+        if (!Array.isArray(activities)) {
+            return;
+        }
 
-    localStorage.setItem(
-        activityKey,
-        JSON.stringify(activities)
-    );
+        activities.push({
+            action: action,
+            details: details,
+            time: new Date().toISOString()
+        });
+
+        localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify(activities)
+        );
+
+    } catch (error) {
+        console.warn("Не удалось сохранить активность:", error);
+    }
 }
 
-// Сохранение кликов
-document.addEventListener("click", function(event) {
-    const target = event.target.closest("a, button");
-
-    if (target) {
-        saveActivity(
-            "click",
-            target.innerText || target.getAttribute("href")
-        );
-    }
-});
-
-// Сохранение прокрутки
-let lastScroll = 0;
-
-window.addEventListener("scroll", function() {
-    const currentScroll = Math.round(window.scrollY);
-
-    if (Math.abs(currentScroll - lastScroll) > 150) {
-        saveActivity("scroll", currentScroll + "px");
-        lastScroll = currentScroll;
-    }
-});
-
-// Сохранение переходов между разделами
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", function() {
-        saveActivity("navigation", link.getAttribute("href"));
-    });
-});
-
-// Запись посещения сайта
+// Посещение
 saveActivity("visit", "Открытие сайта");
 
+// Нажатия и переходы
+document.addEventListener("click", function(event) {
+    const link = event.target.closest("a");
+
+    if (!link) return;
+
+    const href = link.getAttribute("href") || "";
+
+    saveActivity(
+        href.startsWith("#") ? "navigation" : "click",
+        href
+    );
+});
+
+// Прокрутка страницы
+let lastScroll = -1;
+
+window.addEventListener("scroll", function() {
+    const position = Math.round(window.scrollY);
+
+    if (Math.abs(position - lastScroll) >= 150) {
+        lastScroll = position;
+        saveActivity("scroll", position + "px");
+    }
+}, { passive: true });
+
+// Завершение посещения
+window.addEventListener("pagehide", function() {
+    saveActivity("pagehide", "Посещение завершено");
+});
 </script>
 
 </body>
